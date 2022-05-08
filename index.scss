@@ -19,6 +19,79 @@ body {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
-  width: 40%;
+  width: 70%;
   max-width: 100%;
+  overflow: hidden;
+}
+
+.header {
+  padding: 1.25rem 2.5rem;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+
+.form {
+  padding: 1.875rem 2.5rem;
+}  
+
+.form-control {
+  margin-bottom: .625rem;
+  padding-bottom: 1.25rem;
+  position: relative;
+
+  &.success input {
+    border-bottom-color: #2ecc97;
+  }
+  &.error input {
+    border-bottom-color: #cc2e2e;
+  }
+  &.success i.fa-check-circle {
+    color: #2ecc97;
+    visibility: visible;
+  }
+  &.error i.fa-exclamation-circle {
+    color: #cc2e2e;
+    visibility: visible;
+  }
+  &.error small {
+    color: #cc2e2e;
+    visibility: visible;
+  }
+}
+
+.form-control input {
+  border: none;
+  border-bottom: 2px solid #f0f0f0;
+  outline: none;
+  width: 100%;
+  display: block;
+  padding: .625rem;
+  font-size: .825rem;
+}
+
+.form-control i {
+  position: absolute;
+  top: 1.875rem;
+  right: 10px;
+  visibility: hidden;
+}
+
+.form-control small {
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.form button {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: .625rem;
+  border: none;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
 }
