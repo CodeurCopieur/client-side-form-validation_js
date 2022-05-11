@@ -36,6 +36,24 @@ var Shaker = (() => {
       } else {
         setSuccessFor(form.elements['email']);
       }
+
+      if(passwordValue === '') {
+        // add error class & show error
+        setErrorFor(form.elements['password'], `Le mdp ne peut pas être vide`);
+      } else {
+        // add success class
+        setSuccessFor(form.elements['password']);
+      }
+
+      if(password2Value === '') {
+        // add error class & show error
+        setErrorFor(form.elements['password2'], `Le second mdp ne peut pas être vide`);
+      } else if(passwordValue !== password2Value) {
+        setErrorFor(form.elements['password2'], `Les passwords ne sont pas identiques`);
+      } else {
+        // add success class
+        setSuccessFor(form.elements['password2']);
+      }
     }
 
     function setErrorFor(input, message) {
