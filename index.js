@@ -21,15 +21,20 @@ var Shaker = (() => {
       const passwordValue = form.elements['password'].value.trim();
       const password2Value = form.elements['password2'].value.trim();
 
-      //console.log(usernameValue, emailValue, passwordValue, password2Value);
-
       if(usernameValue === '') {
-        // show error
-        // add error class
+        // add error class & show error
         setErrorFor(form.elements['username'], `Le nom d'utilisateur ne peut pas être vide`);
       } else {
         // add success class
         setSuccessFor(form.elements['username']);
+      }
+
+      if(emailValue === '') {
+        setErrorFor(form.elements['email'], `L'email ne peut pas être vide`);
+      } else if(!isEmail(emailValue)) {
+        setErrorFor(form.elements['email'], `L'email n'est pas valide`);
+      } else {
+        setSuccessFor(form.elements['email']);
       }
     }
 
@@ -43,8 +48,16 @@ var Shaker = (() => {
       // add error class
       formControl.classList.add('error')
     }
-    function setSuccessFor() {
-      
+    function setSuccessFor(input) {
+      const formControl = input.parentElement; // .form-control
+
+      // add succes class
+      formControl.classList.remove('error')
+      formControl.classList.add('success')
+    }
+
+    function isEmail(email) {
+      return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
     }
   }
 
